@@ -40,5 +40,19 @@ public class PigLatin {
                 word.substring(2) + word.substring(0, 2) + "ay" :
                 word.substring(1) + firstChar + "ay";
     }
-    
+
+    public static String pigLatinBest(String word) {
+        word = word.toLowerCase();
+        char firstChar = word.charAt(0);
+
+        if (firstChar < 'a' || firstChar > 'z') return word;
+
+        int upTo = word.length();
+        while (!Character.isLetterOrDigit(word.charAt(upTo-1))) {
+            upTo--;
+        }
+
+        return pigLatin(word.substring(0, upTo)) + word.substring(upTo);
+    }
+
 }
