@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class PigLatin {
 
     public static String pigLatinSimple(String word) {
@@ -53,6 +55,18 @@ public class PigLatin {
         }
 
         return pigLatin(word.substring(0, upTo)) + word.substring(upTo);
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        while (scanner.hasNextLine()) {
+            Scanner lineScanner = new Scanner(scanner.nextLine());
+            while (lineScanner.hasNext()) {
+                System.out.print(pigLatinBest(lineScanner.next()));
+                if (lineScanner.hasNext()) System.out.print(' ');
+            }
+            if (scanner.hasNextLine()) System.out.println();
+        }
     }
 
 }
